@@ -1,0 +1,14 @@
+{
+  "name": "javatocppconvertor",
+  "version": "1.0.0",
+  "description": "Landing Page for converting programming language to each others",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Komil Guliev",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.12.0"
+  }
+}
