@@ -1,0 +1,78 @@
+.slider-page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+
+    &__main {
+        display: inline-block;
+        width: 98%;
+        height: 100%;
+        transition: all .5s;
+    }
+
+    &__secondary {
+        display: inline-block;
+        width: 2%;
+        height: 100%;
+        transition: all .5s;
+    }
+
+    &__btn {
+        height: 100%;
+        width: 2%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: $color-dark;
+        color: $color-white;
+        cursor: pointer;
+        display: block;
+        transition: all .5s;
+    }
+
+    &__arrow-icon {
+        font-size: 2rem;
+        transition: transform .5s;
+
+        @include center;
+    }
+
+    &__selector {
+        display: none;
+    }
+
+    &__code {
+        width: 100%;
+        height: 100%;
+        font-size: 2rem;
+        padding: 2rem;
+        box-sizing: border-box;
+        font-family: 'Slabo 27px', sans-serif;
+        letter-spacing: 1px;
+
+        &:focus {
+            outline: none;
+        }
+
+    }
+
+    &__selector:checked ~ &__secondary {
+        width: 98%;
+    }
+
+    &__selector:checked ~ &__main {
+        width: 2%;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &__selector:checked ~ &__btn {
+        right: 98%;
+    }
+
+    &__selector:checked ~ &__btn &__arrow-icon {
+        transform: translate(-50%, -50%) rotate(180deg);
+    }
+}

@@ -1,0 +1,50 @@
+.header {
+    width: 70%;
+    margin: 0 auto;
+    padding: 2rem;
+    box-shadow: 0 1rem 2rem rgba($color-black, .3);
+    box-sizing: border-box;
+    background-color: $color-gray;
+    color: $color-dark;
+    position: relative;
+
+    &__logo {
+        position: absolute;
+        top: 2rem;
+        left: 23rem;
+        width: 5rem;
+        height: 5rem;
+    }
+
+    &__title {
+        font-size: 4rem;
+        text-align: center;
+        letter-spacing: .3rem;
+        margin-bottom: 3rem;
+        position: relative;
+    }
+
+    &__text-bg {
+        -webkit-background-clip: text;
+        background-clip: text;   
+        color: transparent;
+        letter-spacing: 2px;     
+        
+        &--1 {
+            background-image: linear-gradient(
+                to right,
+                $color-sky,
+                $color-white
+            );
+        }
+
+        &--2 {
+            background-image: linear-gradient(
+                to right,
+                $color-white,
+                $color-mango
+            );
+        }
+    }
+
+}

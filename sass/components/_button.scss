@@ -1,0 +1,34 @@
+.btn {
+    &,
+    &:link,
+    &:visited {
+        display: inline-block;
+        padding: .6rem 3rem;
+        color: $color-dark;
+        box-shadow: 0 .2rem .4rem rgba($color-black, .7);
+        text-decoration: none;
+        transition: all .4s;
+    }
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 .3rem .5rem rgba($color-black, .7);
+    }
+
+    &:active {
+        transform: translate(0);
+    }
+
+    &--run {
+        background-color: rgba($color-white, .8);
+
+        & > i {
+            color: $color-green-light;
+            margin-right: .4rem;
+        }
+
+        &:hover {
+            background-color: rgba($color-white, 1);
+        }
+    }
+}
