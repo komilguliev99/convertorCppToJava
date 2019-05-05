@@ -20,6 +20,10 @@
         &:not(:last-child) {
             margin-right: 4rem;
         }
+
+        & > select {
+            display: none;
+        }
     }
 
     &__label {

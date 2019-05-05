@@ -19,21 +19,19 @@
             <div class="text-editor__header">
                 <div class="col-1-of-2">
                     <div class="text-editor__select-lang">
-                        <label for="from" class="text-editor__label">From: </label>
-                        <select name="laguage" id="from">
+                        <select class="selector-proto" name="laguage" id="from" data-id="from" data-place-holder="From" data-target="to">
+                            <option value="from">From: </option>
                             <option value="cpp">C++</option>
                             <option value="java">Java</option>
                         </select>
-                        </section>
                     </div>
 
                     <div class="text-editor__select-lang">
-                        <label for="to" class="text-editor__label">To: </label>
-                        <select name="laguage" id="to">
+                        <select class="selector-proto" name="laguage" id="to" data-id="to" data-place-holder="To" data-target="from">
+                            <option value="to">To: </option>
                             <option value="cpp">C++</option>
                             <option value="java">Java</option>
                         </select>
-                        </section>
                     </div>
                 </div>
 
@@ -52,15 +50,24 @@
                     </label>
 
                     <div class="slider-page__main">
-                        <textarea class="slider-page__code" placeholder="Write your code here!"></textarea>
+                        <textarea class="slider-page__code" id="from__code" placeholder="Write your code here!"></textarea>
                     </div>
                     <div class="slider-page__secondary">
-                        <textarea class="slider-page__code" readonly></textarea>
+                        <textarea class="slider-page__code" id="to__code" readonly></textarea>
                     </div>
                 </div>
             </div>
         </div>
     </header>
+
+
+    <div class="popup">
+        <div class="popup__close"></div>
+        <div class="popup__content">
+            <h2 class="popup__title">Error on Languages</h2>
+            <p>Please, check your selected langauges, then convert code again!</p>
+        </div>
+    </div>
     
 </body>
 </html>

@@ -1,0 +1,73 @@
+.popup {
+    background-color: rgba($color-black, .7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    transition: all .35s;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(.02);
+
+    &__content {
+        background-color: $color-white;
+        width: 40%;
+        height: 40%;
+        font-size: 2rem;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        box-sizing: border-box;
+        
+        @include center;
+    }
+
+    &__title {
+        font-size: 2.4rem;
+        text-transform: uppercase;
+        background-image: linear-gradient(to right, $color-red, $color-red-dark);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 1.5rem;
+    }
+
+    &__close {
+        position: absolute;
+        top: 5.5rem;
+        right: 5.5rem;
+        width: 4.5rem;
+        height: 4.5rem;
+        cursor: pointer;
+
+        &::after,
+        &::before {
+            content: '';
+            width: 4rem;
+            height: .5rem;
+            background-color: $color-white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+        }
+
+        &::after {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        &::before {
+            transform: translate(-50%, -50%) rotate(135deg);
+        }
+    }
+
+    &__active {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+}

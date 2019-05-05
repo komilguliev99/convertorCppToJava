@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Java -> C++ Convertor</title>
+    <link href="https://fonts.googleapis.com/css?family=Courgette|Crete+Round|Raleway|Slabo+27px" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+</head>
+<body>
+    <header class="header">
+        <img src="img/logo.png" alt="" class="header__logo">
+        <h2 class="header__title">Convertor <span class="header__text-bg header__text-bg--1">C++</span> -> <span class="header__text-bg header__text-bg--2">Java</span></h2>
+
+        <div class="text-editor">
+            <div class="text-editor__header">
+                <div class="col-1-of-2">
+                    <div class="text-editor__select-lang">
+                        <select class="selector-proto" name="laguage" id="from" data-id="from" data-place-holder="From" data-target="to">
+                            <option value="from">From: </option>
+                            <option value="cpp">C++</option>
+                            <option value="java">Java</option>
+                        </select>
+                    </div>
+
+                    <div class="text-editor__select-lang">
+                        <select class="selector-proto" name="laguage" id="to" data-id="to" data-place-holder="To" data-target="from">
+                            <option value="to">To: </option>
+                            <option value="cpp">C++</option>
+                            <option value="java">Java</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-1-of-2 text-right">
+                    <a href="#" class="btn btn--run">
+                        <i class="fas fa-play"></i> Run
+                    </a>
+                </div>
+            </div>
+            <div class="text-editor__body">
+                <div class="slider-page">
+                    
+                    <input type="checkbox" id="page-selector" class="slider-page__selector">
+                    <label for="page-selector" class="slider-page__btn">
+                        <i class="fas fa-arrow-left slider-page__arrow-icon slider-page__arrow-icon"></i>
+                    </label>
+
+                    <div class="slider-page__main">
+                        <textarea class="slider-page__code" id="from__code" placeholder="Write your code here!"></textarea>
+                    </div>
+                    <div class="slider-page__secondary">
+                        <textarea class="slider-page__code" id="to__code" readonly></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="popup">
+        <div class="popup__close"></div>
+        <div class="popup__content">
+            <h2 class="popup__title">Error on Languages</h2>
+            <p>Please, check your selected langauges, then convert code again!</p>
+        </div>
+    </div>
+    
+<script type="text/javascript" src="js/all.js?f84af9deabbd84719df9"></script><script type="text/javascript" src="js/images.js?f84af9deabbd84719df9"></script></body>
+</html>
