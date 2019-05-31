@@ -105,9 +105,55 @@ public static void main(String [] args) {
 
 const cppToJavaMap = new Map();
 
+const javaType = {
+    'int': 'Integer',
+    'string': 'String',
+    'bool': 'Boolean',
+    'char': 'Char',
+    'double': 'Double',
+    'float': 'Float'
+}
+
+const VectorJava = {
+    key: /(vector|map|set) {0,}< {0,}(int|double|float|char|string),{0,} {0,}(int|double|float|char|string){0,} {0,}> {0,}[A-z0-9,_ ]{1,} {0,};/g,
+    callBack: function(match) {
+        let types = match.slice(match.indexOf('<') + 1, match.lastIndexOf('>')).replace(',','').split(' ');
+        types = types.filter(el => el != '');
+        let vars = match.slice(match.lastIndexOf('>')+1).replace(',','').replace(';','');
+        const container = match.slice(0, match.indexOf('<')).trim();
+        console.log('VARS: ', vars);
+        const arMatch = vars.split(' ').filter(el => el != '');
+
+        console.log(`TYPE: ${types}`);
+        console.log(`arMatch:`,arMatch);
+
+        let markup = `ArrayList<$TYPE> $VAR = new ArrayList<$TYPE>();\n`
+
+        switch(container) {
+            case 'vector': markup = `ArrayList<$TYPE> $VAR = new ArrayList<$TYPE>();\n`; break;
+            case 'map': markup = `TreeMap<$TYPE1, $TYPE2> $VAR = new TreeMap<$TYPE1, $TYPE2>();\n`; break;
+            case 'set': markup = `TreeSet<$TYPE> $VAR = new TreeSet<$TYPE>();\n`; break;
+        }
+
+        let res = '';
+        arMatch.forEach(el => {
+            if(types.length > 1) {
+                res += markup.replace('$VAR', el).replace(/\$TYPE1/g, javaType[types[0]]).replace(/\$TYPE2/g, javaType[types[1]]);
+            } else  {
+                res += markup.replace('$VAR', el).replace(/\$TYPE/g, javaType[types[0]]);
+            }
+        });
+
+        return res;
+
+    }
+
+}
+
 cppToJavaMap.set(/int {1,}main\(\)(\n| )\{/g, mainJava);
 cppToJavaMap.set('write', write);
 cppToJavaMap.set(/printf {0,}\(/g, "System.out.println(");
+cppToJavaMap.set('vector', VectorJava);
 
 
 export const langData = {

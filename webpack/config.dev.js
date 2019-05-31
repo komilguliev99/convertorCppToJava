@@ -19,6 +19,14 @@ module.exports = {
 		poll: 1000,
 		ignored: /node_modules/,
 	},
+	target: "webworker", // or 'node' or 'node-webkit'
+    externals:{
+        fs:    "commonjs fs",
+        path:  "commonjs path"
+	},
+	node: {
+		fs: "empty"
+	},
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',

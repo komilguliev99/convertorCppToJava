@@ -18,8 +18,12 @@ export default class Convertor {
         this.to = to;
     }
 
-    setCode() {
-        this.allCode = document.querySelector(this.areaConvertID).value;
+    setCode(file) {
+        if(file) {
+        
+        } else {
+            this.allCode = document.querySelector(this.areaConvertID).value;
+        }
         let index = this.allCode.search(/int {1,}main\(\)/g);
         this.mainPart = this.allCode.slice(index);
         this.beforeMain = this.allCode.slice(0, index);
@@ -94,7 +98,6 @@ export default class Convertor {
     convertCode(to) {
 
         if(to == 'java') {
-            this.setCode();
             let standartClass = this.standartClass;
 
             this.setFuncInfo();
@@ -117,11 +120,12 @@ export default class Convertor {
 
             this.cppMap.forEach((el, key, map) => {
                 
-                if(key !== 'write') {
+                if(!el.callBack) {
                     this.mainPart = this.mainPart.replace(key, el);
                 } else {
                     let bindCall = el.callBack.bind(el);
                     this.mainPart = this.mainPart.replace(el.key, bindCall);
+                    this.beforeMain = this.beforeMain.replace(el.key, bindCall);
                 }
             
             });

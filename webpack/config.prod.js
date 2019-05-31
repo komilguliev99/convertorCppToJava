@@ -18,7 +18,15 @@ module.exports = {
             filename: 'index.html',
             template: './src/index.html'
         })
-    ],
+	],
+	target: "webworker", // or 'node' or 'node-webkit'
+    externals:{
+        fs:    "commonjs fs",
+        path:  "commonjs path"
+	},
+	node: {
+		fs: "empty"
+	},
     module: { 
         rules: [
             {
